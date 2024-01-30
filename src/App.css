@@ -1,0 +1,222 @@
+@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
+
+:root {
+  --wall-background: #A0A0A0;
+  --slider-background: #CCC;
+  --slider-background-2: #2196F3;
+  --calculator-background: #000040;
+  --display-border: #000080;
+  --calc-hover-background: #333;
+  --calc-hover-color: #ccffff;
+  --calc-hover-border: #ccffff;
+  --calc-clear: red;
+  --wall-hover-color: #ccffff;
+  --divide-hover-background: radial-gradient(circle, transparent 20%, rgb(255, 153, 0, 0.4) 60%);
+  --multiply-hover-background: radial-gradient(circle, transparent 20%, rgba(0, 50, 200, 0.4) 60%);
+  --subtract-hover-background: radial-gradient(circle, transparent 20%, rgba(153, 100, 255, 0.4) 60%);
+  --add-hover-background: radial-gradient(circle, transparent 20%, rgb(204, 0, 0, 0.4) 60%);
+  --equal-hover-background: radial-gradient(circle, transparent 20%, rgba(0, 255, 0, 0.3) 60%);
+  --footer-color: white;
+  --footer-hover-color: black;
+}
+
+body {
+  background-color: var(--wall-background) !important;
+}
+
+#canvas {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* SWITCHES */
+.row-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.switch-container {
+  display: flex;
+  font-size: 1.4rem;
+  padding: 10px;
+}
+
+.switch-container p {
+  margin: auto;
+  padding: 0 5px 0 0;
+}
+
+.switch-container .switch {
+  position: relative;
+  display: inline-block;
+  margin: auto;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-container .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+/* SLIDER ANIMATION */
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--slider-background);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--slider-background-2);
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px var(--slider-background-2);
+}
+
+.switch input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+/* CALCULATOR */
+#calculator {
+  background-color: var(--calculator-background);
+  border-radius: 5px;
+}
+
+#calculator #display {
+  background-color: black;
+  border: 5px solid var(--display-border);
+  color: green;
+  font-family: Share Tech Mono, monospace;
+  text-align: right;
+  margin: 15px 12px;
+  padding: 5px;
+  font-size: 1.8rem;
+}
+
+
+/* CALCULATOR BUTTONS */
+#calculator #buttons {
+  margin-bottom: 10px;
+}
+
+#calculator #buttons button {
+  height: 60px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+
+#calculator #buttons button:hover {
+  background-color: var(--calc-hover-background);
+  color: var(--calc-hover-color);
+  border: var(--calc-hover-border) 1px solid;
+}
+
+#calculator #buttons #clear {
+  background-color: var(--calc-clear);
+}
+
+
+/* WALL BUTTONS */
+#wall {
+  padding-top: 20px;
+}
+
+.wall-buttons {
+  text-align: center;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+}
+.wall-buttons button {
+  background-color: transparent;  
+  border: none;
+  width: 100%;
+}
+.wall-buttons button:hover {
+  color: var(--wall-hover-color);
+}
+
+
+/* HOVER ANIMATION */
+.wall-buttons button::before {     /* Pseudo-element */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.wall-buttons button:hover::before {  /* hover effect */
+  opacity: 1;
+}
+
+.wall-buttons #divide::before {
+  background: var(--divide-hover-background);
+}
+.wall-buttons #multiply::before {
+  background: var(--multiply-hover-background);
+}
+.wall-buttons #subtract::before {
+  background: var(--subtract-hover-background);
+}
+.wall-buttons #add::before {
+  background: var(--add-hover-background);
+}
+.wall-buttons #equals::before {
+  background: var(--equal-hover-background);
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--footer-color);
+  font-weight: bold;
+  font-size: 18px;
+  font-family: monospace;
+}
+footer:hover {
+  color: var(--footer-hover-color)
+}
