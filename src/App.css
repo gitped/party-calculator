@@ -2,9 +2,12 @@
 
 :root {
   --wall-background: #A0A0A0;
+  --slider-button: white;
   --slider-background: #CCC;
   --slider-background-2: #2196F3;
-  --calculator-background: #000040;
+  --calculator-background: linear-gradient(to bottom, #000040, #000066);;
+  --display-text: green;
+  --display-background: black;
   --display-border: #000080;
   --calc-hover-background: #333;
   --calc-hover-color: #ccffff;
@@ -22,6 +25,7 @@
 
 body {
   background-color: var(--wall-background) !important;
+  transition: background-color 0.5s ease;
 }
 
 #canvas {
@@ -85,7 +89,7 @@ body {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: var(--slider-button);
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
@@ -93,6 +97,7 @@ body {
 
 .switch input:checked + .slider {
   background-color: var(--slider-background-2);
+  transition: background 0.5s ease;
 }
 
 .switch input:focus + .slider {
@@ -108,14 +113,14 @@ body {
 
 /* CALCULATOR */
 #calculator {
-  background-color: var(--calculator-background);
+  background: var(--calculator-background);
   border-radius: 5px;
 }
 
 #calculator #display {
-  background-color: black;
+  background-color: var(--display-background);
   border: 5px solid var(--display-border);
-  color: green;
+  color: var(--display-text);
   font-family: Share Tech Mono, monospace;
   text-align: right;
   margin: 15px 12px;
@@ -142,6 +147,8 @@ body {
   background-color: var(--calc-hover-background);
   color: var(--calc-hover-color);
   border: var(--calc-hover-border) 1px solid;
+  transform: scale(1.05);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 #calculator #buttons #clear {
@@ -176,7 +183,7 @@ body {
 
 
 /* HOVER ANIMATION */
-.wall-buttons button::before {     /* Pseudo-element */
+.wall-buttons button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -189,7 +196,7 @@ body {
   border-radius: inherit;
 }
 
-.wall-buttons button:hover::before {  /* hover effect */
+.wall-buttons button:hover::before {
   opacity: 1;
 }
 
