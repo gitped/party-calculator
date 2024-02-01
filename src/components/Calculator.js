@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import { SwitchButton, CalculatorButtons, WallButtons } from './ButtonComponents';
 
-class App extends React.Component {
+class Calculator extends React.Component {
   state = {
     displayText: '0',
     currentOperator: null,
@@ -124,7 +124,7 @@ class App extends React.Component {
           <SwitchButton id="party-mode" description="Party Mode" onClick={this.handlePartyMode}/>
         </div>
         <div id="calculator" style={calculatorStyle}>
-          <div id="display">{this.state.displayText}</div>
+          <div id="display" data-testid="display" >{this.state.displayText}</div>
           <div id="buttons" className="container">
             <CalculatorButtons id="clear" input="AC" onClick={() => {this.handleClear()}}/>
             <div className="row g-2">
@@ -163,4 +163,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Calculator;
