@@ -1,5 +1,5 @@
 # Party-Calculator
-A calculator app that allows users to perform basic arithmetic operations accounting for negatives, decimals, and math infractions. It features a colorful user-friendly interface with standard calculator buttons and a dynamic display, making it suitable for various screen sizes.
+A React app to calculate basic arithmetic operations accounting for negative numbers, decimals, and math infractions. It features a colorful user-friendly interface with standard calculator buttons and a dynamic display, making it suitable for various screen sizes.
 
 [party-calculator-app.webm](https://github.com/gitped/party-calculator/assets/81792238/ea87e6bf-7b6e-4cb4-997a-d9979f785bdb)
 
